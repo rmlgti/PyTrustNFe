@@ -124,7 +124,7 @@ def _send(certificado, method, sign, **kwargs):
     xmlElem_send = render_xml(path, '%s.xml' % method, True, **kwargs)
     modelo = xmlElem_send.find(".//{http://www.portalfiscal.inf.br/nfe}mod")
     modelo = modelo.text if modelo is not None else '55'
-    if modelo == '65':
+    if modelo == '65' and method != 'NfeInutilizacao':
         pagamento = etree.Element('pag')
         tipo_pagamento = etree.Element('tPag')
         valor = etree.Element('vPag')
@@ -134,7 +134,7 @@ def _send(certificado, method, sign, **kwargs):
         pagamento.append(tipo_pagamento)
         pagamento.append(valor)
         transp = xmlElem_send.find(
-                ".//{http://www.portalfiscal.inf.br/nfe}transp")
+            ".//{http://www.portalfiscal.inf.br/nfe}transp")
         transp.addnext(pagamento)
 
     if sign:
@@ -157,7 +157,7 @@ def _send(certificado, method, sign, **kwargs):
             xml_send = signer.assina_xml(
                 xmlElem_send, kwargs['Id'])
 
-        if modelo == '65':
+        if modelo == '65' and method != 'NfeInutilizacao':
             xml_send = _add_qrCode(xml_send, **kwargs)
 
     else:
