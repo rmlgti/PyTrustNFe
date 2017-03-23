@@ -75,6 +75,8 @@ SIGLA_ESTADO = {
 def localizar_url(servico, estado, mod='55', ambiente=2):
     sigla = SIGLA_ESTADO[estado]
     ws = ESTADO_WS[sigla]
+    if servico == WS_NFE_CONSULTA_DESTINADAS:
+        ws = AN
     if mod in ws:
         dominio = ws[mod][ambiente]['servidor']
         complemento = ws[mod][ambiente][servico]
