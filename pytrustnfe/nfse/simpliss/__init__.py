@@ -10,7 +10,7 @@
 
 import os
 from lxml import etree
-from pytrustnfe import HttpClient
+from pytrustnfe.client import HttpClient
 from pytrustnfe.xml import render_xml, sanitize_response
 
 

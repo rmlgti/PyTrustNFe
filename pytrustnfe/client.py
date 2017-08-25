@@ -42,16 +42,23 @@ class HttpClient(object):
         self.cert_path = cert_path
         self.key_path = key_path
 
+    # TODO Ajustar SoapAction NFE http://www.portalfiscal.inf.br/nfe/wsdl/%s
     def _headers(self, action):
         return {
-            u'Content-type': u'application/soap+xml; charset=utf-8; action="http://www.portalfiscal.inf.br/nfe/wsdl/%s"' % action,
+            u'Content-type':
+            u'text/xml; charset=utf-8;',
             u'Accept': u'application/soap+xml; charset=utf-8',
+            u'SOAPAction': action
         }
 
     def post_soap(self, xml_soap, cabecalho):
         header = self._headers(cabecalho.soap_action)
         urllib3.disable_warnings(category=InsecureRequestWarning)
-        res = requests.post(self.url, data=xml_soap,
-                            cert=(self.cert_path, self.key_path),
-                            verify=False, headers=header)
+        certificate = None
+        if self.cert_path and self.key_path:
+            certificate = (self.cert_path, self.key_path, )
+
+        res = requests.post(
+            self.url, data=xml_soap, cert=certificate,
+            verify=False, headers=header)
         return res.text
