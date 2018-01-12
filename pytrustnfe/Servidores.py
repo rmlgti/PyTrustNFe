@@ -137,6 +137,7 @@ METODO_WS = {
 }
 
 SVRS = {
+    NFE_MODELO: {
     NFE_AMBIENTE_PRODUCAO: {
         'servidor': 'nfe.svrs.rs.gov.br',
         WS_NFE_RECEPCAO_EVENTO: 'ws/recepcaoevento/recepcaoevento.asmx',
@@ -158,6 +159,33 @@ SVRS = {
         WS_NFE_INUTILIZACAO: 'ws/nfeinutilizacao/nfeinutilizacao2.asmx',
         WS_NFE_CONSULTA: 'ws/NfeConsulta/NfeConsulta2.asmx',
         WS_NFE_SITUACAO: 'ws/NfeStatusServico/NfeStatusServico2.asmx',
+    }
+    },
+    NFCE_MODELO: {
+        NFE_AMBIENTE_PRODUCAO: {
+            'servidor': 'nfce.svrs.rs.gov.br',
+            WS_NFE_RECEPCAO_EVENTO: 'ws/recepcaoevento/recepcaoevento.asmx',
+            WS_NFE_CANCELAMENTO: 'ws/recepcaoevento/recepcaoevento.asmx',
+            WS_NFE_AUTORIZACAO: 'ws/NfeAutorizacao/NfeAutorizacao.asmx',
+            WS_NFE_RET_AUTORIZACAO: 'ws/NfeRetAutorizacao/NfeRetAutorizacao.asmx',
+            WS_NFE_CADASTRO: 'ws/CadConsultaCadastro/CadConsultaCadastro2.asmx',
+            WS_NFE_INUTILIZACAO: 'ws/nfeinutilizacao/nfeinutilizacao2.asmx',
+            WS_NFE_CONSULTA: 'ws/NfeConsulta/NfeConsulta2.asmx',
+            WS_NFE_SITUACAO: 'ws/NfeStatusServico/NfeStatusServico2.asmx',
+            WS_NFCE_QR_CODE: 'http://www.nfce.sefin.ro.gov.br/consultanfce/consulta.jsp',
+        },
+        NFE_AMBIENTE_HOMOLOGACAO: {
+            'servidor': 'nfce-homologacao.svrs.rs.gov.br',
+            WS_NFE_RECEPCAO_EVENTO: 'ws/recepcaoevento/recepcaoevento.asmx',
+            WS_NFE_CANCELAMENTO: 'ws/recepcaoevento/recepcaoevento.asmx',
+            WS_NFE_AUTORIZACAO: 'ws/NfeAutorizacao/NfeAutorizacao.asmx',
+            WS_NFE_RET_AUTORIZACAO: 'ws/NfeRetAutorizacao/NfeRetAutorizacao.asmx',
+            WS_NFE_CADASTRO: 'ws/CadConsultaCadastro/CadConsultaCadastro2.asmx',
+            WS_NFE_INUTILIZACAO: 'ws/nfeinutilizacao/nfeinutilizacao2.asmx',
+            WS_NFE_CONSULTA: 'ws/NfeConsulta/NfeConsulta2.asmx',
+            WS_NFE_SITUACAO: 'ws/NfeStatusServico/NfeStatusServico2.asmx',
+            WS_NFCE_QR_CODE: 'http://www.nfce.sefin.ro.gov.br/consultanfce/consulta.jsp',
+        }
     }
 }
 
